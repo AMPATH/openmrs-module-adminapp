@@ -3,29 +3,42 @@
 %>
 
 <script type="text/javascript">
-    breadcrumbs.push({
-        label: "${ui.message("adminapp.title")}" ,
-        link:'${ui.pageLink("adminapp", "adminapp/admin")}'
+
+    jq(document).ready(function(){
+        // set up clicks in the sidebar menu
+        jq("#sections .menu-item").click(function(){
+            jq("#sections .menu-item").removeClass("selected");
+            jq(this).addClass("selected");
+            jq.ajax({
+                url: "${ ui.pageLink("adminapp", "section") }",
+                data: {
+                    section: jq(this).attr("data-sectionKey"),
+                    title: jq(this).find(".title").html()
+                },
+                success: function(data) {
+                    jq("#section-details").html(data);
+                }
+            });
+        });
     });
 
-    jq(".collapse").collapse();
 </script>
 
 <h2>${ ui.message("adminapp.title") }</h2>
 
 <ul id="sections" class="left-menu">
-    <li class="menu-item">
-        <span> Test 1</span>
+    <li class="menu-item" data-sectionKey="general">
+        <span class="title">General Settings</span>
         <span class="arrow-border"></span>
         <span class="arrow"></span>
     </li>
-    <li class="menu-item selected">
-        <span> Test 2</span>
+    <li class="menu-item" data-sectionKey="users">
+        <span class="title">Users</span>
         <span class="arrow-border"></span>
         <span class="arrow"></span>
     </li>
-    <li class="menu-item">
-        <span> Test 3</span>
+    <li class="menu-item" data-sectionKey="patient">
+        <span class="title">Patients</span>
         <span class="arrow-border"></span>
         <span class="arrow"></span>
     </li>
