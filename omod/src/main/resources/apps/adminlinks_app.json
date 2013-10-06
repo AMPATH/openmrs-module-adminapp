@@ -7,9 +7,9 @@
                 "id": "${project.parent.artifactId}.appId",
                 "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
                 "type": "link",
-                "label": "adminapp.title",
+                "label": "adminapp.apptitle",
                 "url": "adminapp/admin.page",
-                "icon": "icon-magic",
+                "icon": "icon-wrench",
                 "requiredPrivilege": "App: Administration"
             }
         ]
