@@ -1,0 +1,17 @@
+[
+    {
+        "id": "${project.parent.artifactId}.app",
+        "description": "Admin App",
+        "extensions": [
+            {
+                "id": "${project.parent.artifactId}.appId",
+                "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+                "type": "link",
+                "label": "adminapp.title",
+                "url": "adminapp/admin.page",
+                "icon": "icon-magic",
+                "requiredPrivilege": "App: Administration"
+            }
+        ]
+    }
+]
