@@ -27,9 +27,23 @@ public class AdminPageController {
 	public void controller(PageModel pageModel, @SpringBean("appFrameworkService") AppFrameworkService appFrameworkService) {
 
 		Map<String, String> sections = new LinkedHashMap<String, String>();
-		sections.put("general", "General Settings");
-		sections.put("users", "Users");
-		sections.put("patients", "Patients");
+		sections.put("maintenance", "General Settings");
+		sections.put("users", "User.header");
+		sections.put("patients", "Patient.header");
+		sections.put("person", "Person.header");
+		sections.put("visits", "Visit.header");
+		sections.put("encounters", "Encounter.header");
+		sections.put("provider", "Provider.header");
+		sections.put("locations", "Location.header");
+		sections.put("observations", "Obs.header");
+		sections.put("orders", "Order.header");
+		sections.put("scheduler", "Scheduler.header");
+		sections.put("programs", "Program.header");
+		sections.put("concepts", "Concept.header");
+		sections.put("forms", "Form.header");
+		sections.put("hl7", "Hl7Messages.header");
+		sections.put("modules", "Module.header");
+
 		pageModel.addAttribute("sections", sections);
 
 		pageModel.addAttribute("modules", ModuleFactory.getExtensions("org.openmrs.admin.list"));

@@ -1,11 +1,11 @@
 <%
     ui.decorateWith("appui", "standardEmrPage")
+    ui.includeJavascript("adminapp", "jquery.highlightingsearch.min.js")
 %>
 
 <style>
-    #section-details .links a { display: block; line-height: 2em; }
-    #section-details .links a:before { content: '- '; }
     #sections .menu-item { size: 0.75em; height: 2em; }
+    .match, a.button.match { background: yellow; }
 </style>
 
 <script type="text/javascript">
@@ -21,6 +21,21 @@
 
         // start with the top-most section
         jq("#sections .menu-item").first().click();
+
+        // add highlighting functionality
+        jq('#search').highlightingsearch({
+            targetClass: '.menu-item .title,.links a',
+            highlightClass: 'match',
+            callback: function(elem, highlightClass) {
+                if (elem.prop('tagName') == 'A') {
+                    var section = elem.parent().parent().attr('data-sectionkey');
+                    jq('#sections li[data-sectionkey="'+section+'"] span.title').each(function() {
+                        jq(this).addClass(highlightClass);
+                    });
+//                    jq('#sections li[data-sectionkey="'+section+'"]').addClass(highlightClass);
+                }
+            }
+        }).focus();
     });
 
 </script>
@@ -59,7 +74,10 @@
             <h4>${ ui.message(it.title) }</h4>
             <span class="links">
                 <% it.links.each{ %>
-                <a class="target" href="${ it.key }">${ ui.message(it.value) }</a>
+                <a class="button app big" href="/${ ui.contextPath() }/${ it.key }">
+                    <i class="icon-link"></i>
+                    ${ ui.message(it.value) }
+                </a>
                 <% } %>
             </span>
         </span>

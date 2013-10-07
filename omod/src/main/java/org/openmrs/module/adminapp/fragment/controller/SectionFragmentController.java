@@ -16,14 +16,17 @@ package org.openmrs.module.adminapp.fragment.controller;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.openmrs.module.ModuleFactory;
 import org.openmrs.module.appframework.domain.Extension;
 import org.openmrs.module.appframework.service.AppFrameworkService;
+import org.openmrs.module.web.extension.AdministrationSectionExt;
 import org.openmrs.ui.framework.annotation.FragmentParam;
 import org.openmrs.ui.framework.annotation.SpringBean;
 import org.openmrs.ui.framework.fragment.FragmentModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class SectionFragmentController {
 
@@ -40,15 +43,17 @@ public class SectionFragmentController {
 				out.add(link);
 		}
 
+		List<org.openmrs.module.Extension> moduleLinks = ModuleFactory.getExtensions("org.openmrs.admin." + app + ".localHeader");
+		for (org.openmrs.module.Extension link : moduleLinks) {
+			AdministrationSectionExt ase = (AdministrationSectionExt) link;
+			for (Map.Entry<String, String> l : ase.getLinks().entrySet()) {
+				Extension ex = new Extension("id", "appid", "exptid", "link", l.getValue(), l.getKey(), 99);
+				out.add(ex);
+			}
+		}
+
+
+
 		fragmentModel.addAttribute("links", out);
-
-//<openmrs:extensionPoint pointId="org.openmrs.admin.users.localHeader" type="html">
-//<c:forEach items="${extension.links}" var="link">
-//<li <c:if test="${fn:endsWith(pageContext.request.requestURI, link.key)}">class="active"</c:if> >
-//<a href="${pageContext.request.contextPath}/${link.key}"><openmrs:message code="${link.value}"/></a>
-//</li>
-//</c:forEach>
-//</openmrs:extensionPoint>
-
 	}
 }

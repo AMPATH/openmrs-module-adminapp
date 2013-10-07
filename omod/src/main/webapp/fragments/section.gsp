@@ -1,3 +1,6 @@
 <% links.each{ %>
-    <a class="target" href="${ it.url }">${ ui.message(it.label) }</a>
+    <a class="button app big" href="/${ ui.contextPath() }/${ it.url }">
+        <i class="${ it.icon }"></i>
+        ${ ui.message(it.label) }
+    </a>
 <% } %>
