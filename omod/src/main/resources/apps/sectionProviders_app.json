@@ -1,0 +1,26 @@
+[
+    {
+        "id": "${project.parent.artifactId}.section.providers",
+        "description": "Providers",
+        "extensions": [
+            {
+                "id": "${project.parent.artifactId}.provider.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "Provider.manage",
+                "url": "/admin/provider/index.htm",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Providers,Purge Providers,View Providers"
+            },
+            {
+                "id": "${project.parent.artifactId}.providerAttributeType.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "ProviderAttributeType.manage",
+                "url": "/admin/provider/providerAttributeType.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Provider Attribute Types,View Provider Attribute Types,Purge Provider Attribute Types"
+            }
+        ]
+    }
+]

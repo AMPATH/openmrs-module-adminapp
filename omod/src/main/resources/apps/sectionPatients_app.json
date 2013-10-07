@@ -1,0 +1,44 @@
+[
+    {
+        "id": "${project.parent.artifactId}.section.patients",
+        "description": "Patients",
+        "extensions": [
+            {
+                "id": "${project.parent.artifactId}.patient.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "Patient.manage",
+                "url": "/admin/patients/",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Add Patients,Edit Patients,Delete Patients,View Patients"
+            },
+            {
+                "id": "${project.parent.artifactId}.tribe.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "Tribe.manage",
+                "url": "/admin/patients/tribe.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Tribes"
+            },
+            {
+                "id": "${project.parent.artifactId}.patient.merge.find",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "Patient.merge.find",
+                "url": "/admin/patients/findDuplicatePatients.htm",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Edit Patients"
+            },
+            {
+                "id": "${project.parent.artifactId}.patientIdentifierType.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "PatientIdentifierType.manage",
+                "url": "/admin/patients/patientIdentifierType.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Identifier Types"
+            }
+        ]
+    }
+]

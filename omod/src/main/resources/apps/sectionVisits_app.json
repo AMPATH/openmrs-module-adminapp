@@ -1,0 +1,38 @@
+[
+    {
+        "id": "${project.parent.artifactId}.section.visits",
+        "description": "Visits",
+        "extensions": [
+            {
+                "id": "${project.parent.artifactId}.visitType.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "VisitType.manage",
+                "url": "/admin/visits/visitType.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Visit Types,View Visit Types"
+            },
+            {
+                "id": "${project.parent.artifactId}.visitAttributeType.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "VisitAttributeType.manage",
+                "url": "/admin/visits/visitAttributeType.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Visit Attribute Types,View Visit Attribute Types,Purge Visit Attribute Types"
+            },
+            {
+                "id": "${project.parent.artifactId}.visit.configure",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "Visit.configure",
+                "url": "/admin/visits/configureVisits.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Configure Visits"
+            }
+        ]
+    }
+]
+
+
+
