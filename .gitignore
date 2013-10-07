@@ -49,3 +49,4 @@ local.properties
 # OSX
 .DS_Store
 
+/omod/src/main/java/org/openmrs/module/adminapp/fragment/controller/ModuleLinkFragmentController.java

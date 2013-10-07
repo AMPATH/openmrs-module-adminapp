@@ -30,6 +30,9 @@ public class AdminPageController {
 		sections.put("general", "General Settings");
 		sections.put("users", "Users");
 		sections.put("patients", "Patients");
+        sections.put("location", "Locations");
+        sections.put("modules", "Modules");
+        sections.put("encounters", "Encounters");
 		pageModel.addAttribute("sections", sections);
 
 		pageModel.addAttribute("modules", ModuleFactory.getExtensions("org.openmrs.admin.list"));

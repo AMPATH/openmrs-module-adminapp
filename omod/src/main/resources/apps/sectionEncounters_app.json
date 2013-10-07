@@ -1,0 +1,37 @@
+[
+    {
+        "id": "${project.parent.artifactId}.section.encounters",
+        "description": "Encounters",
+        "extensions": [
+            {
+                "id": "${project.parent.artifactId}.encounters.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "Encounter.manage",
+                "url": "admin/encounters/index.htm",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Add Encounters,Edit Encounters,Delete Encounters,View Encounters"
+            },
+            {
+                "id": "${project.parent.artifactId}.encounters.managetypes",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "EncounterType.manage",
+                "url": "admin/encounters/encounterType.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Encounter Types"
+            },
+            {
+                "id": "${project.parent.artifactId}.encounters.role",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "EncounterRole.manage",
+                "url": "admin/encounters/encounterRole.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Encounter Roles"
+            }
+        ]
+    }
+]
+
+
