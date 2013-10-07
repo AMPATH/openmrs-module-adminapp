@@ -1,0 +1,53 @@
+[
+    {
+        "id": "${project.parent.artifactId}.section.users",
+        "description": "Users",
+        "extensions": [
+            {
+                "id": "${project.parent.artifactId}.user.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "User.manage",
+                "url": "admin/users/users.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Edit Users"
+            },
+            {
+                "id": "${project.parent.artifactId}.role.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "Role.manage",
+                "url": "admin/users/role.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Roles"
+            },
+            {
+                "id": "${project.parent.artifactId}.privilege.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "Privilege.manage",
+                "url": "admin/users/privilege.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Privileges"
+            },
+            {
+                "id": "${project.parent.artifactId}.alert.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "Alert.manage",
+                "url": "admin/users/alert.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Alerts"
+            },
+            {
+                "id": "${project.parent.artifactId}.role.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "Role.manage",
+                "url": "admin/users/role.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Roles"
+            }
+        ]
+    }
+]

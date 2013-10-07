@@ -15,11 +15,23 @@
 package org.openmrs.module.adminapp.page.controller;
 
 import org.openmrs.module.ModuleFactory;
+import org.openmrs.module.appframework.service.AppFrameworkService;
+import org.openmrs.ui.framework.annotation.SpringBean;
 import org.openmrs.ui.framework.page.PageModel;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class AdminPageController {
 
-	public void controller(PageModel pageModel) {
+	public void controller(PageModel pageModel, @SpringBean("appFrameworkService") AppFrameworkService appFrameworkService) {
+
+		Map<String, String> sections = new LinkedHashMap<String, String>();
+		sections.put("general", "General Settings");
+		sections.put("users", "Users");
+		sections.put("patients", "Patients");
+		pageModel.addAttribute("sections", sections);
+
 		pageModel.addAttribute("modules", ModuleFactory.getExtensions("org.openmrs.admin.list"));
 	}
 }

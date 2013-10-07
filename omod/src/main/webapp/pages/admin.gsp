@@ -25,34 +25,44 @@
 
 </script>
 
-<h2>${ ui.message("adminapp.title") }</h2>
+<div style="float:right; width:15em;">
+    <form><input id="search" type="text" placeholder="Search"/></form>
+</div>
+
+<h2 style="clear: none">${ ui.message("adminapp.title") }</h2>
 
 <p class="spaced">
     Select a category or module name to see all available administration links and settings.
 </p>
 
 <ul id="sections" class="left-menu">
-    <li class="menu-item" data-sectionKey="general">
-        <span class="title">General Settings</span>
+    <% sections.each { section -> %>
+    <li class="menu-item" data-sectionKey="${ section.key.replace('.','') }">
+        <span class="title">${ section.value }</span>
         <span class="arrow-border"></span>
         <span class="arrow"></span>
+        <span class="hidden content" data-sectionKey="${ section.key.replace('.','') }">
+            <h4>${ ui.message(section.value) }</h4>
+            <span class="links">
+                ${ ui.includeFragment("adminapp", "section", [ app: section.key ])}
+            </span>
+        </span>
     </li>
-    <li class="menu-item" data-sectionKey="users">
-        <span class="title">Users</span>
-        <span class="arrow-border"></span>
-        <span class="arrow"></span>
-    </li>
-    <li class="menu-item" data-sectionKey="patients">
-        <span class="title">Patients</span>
-        <span class="arrow-border"></span>
-        <span class="arrow"></span>
-    </li>
+    <% } %>
 
     <% modules.each{ %>
     <li class="menu-item" data-sectionKey="${ it.moduleId.replace('.','') }">
         <span class="title">${ ui.message(it.title) }</span>
         <span class="arrow-border"></span>
         <span class="arrow"></span>
+        <span class="hidden content" data-sectionKey="${ it.moduleId.replace('.','') }">
+            <h4>${ ui.message(it.title) }</h4>
+            <span class="links">
+                <% it.links.each{ %>
+                <a class="target" href="${ it.key }">${ ui.message(it.value) }</a>
+                <% } %>
+            </span>
+        </span>
     </li>
     <% } %>
 
@@ -61,33 +71,4 @@
 <div id="section-details" class="main-content">
 </div>
 
-<% ['general': 'General Settings',
-        'users': 'Users',
-        'patients': 'Patients'].each{ %>
-
-<div class="hidden content" data-sectionKey="${ it.key }">
-    <h4>${ it.value }</h4>
-    <div class="links">
-        <a href="#">${ it.value } Link One</a>
-        <a href="#">${ it.value } Link Two</a>
-        <a href="#">${ it.value } Link Three</a>
-        <a href="#">${ it.value } Link Four</a>
-        <a href="#">${ it.value } Link Five</a>
-    </div>
-</div>
-
-<% } %>
-
-<% modules.each{ %>
-
-<div class="hidden content" data-sectionKey="${ it.moduleId.replace('.','') }">
-    <h4>${ ui.message(it.title) }</h4>
-    <div class="links">
-        <% it.links.each{ %>
-        <a class="target" href="${ it.key }">${ ui.message(it.value) }</a>
-        <% } %>
-    </div>
-</div>
-
-<% } %>
 
