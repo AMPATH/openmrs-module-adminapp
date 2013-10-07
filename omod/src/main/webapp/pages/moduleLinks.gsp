@@ -1,0 +1,3 @@
+<%
+    ui.includeFragment("adminapp","moduleLink")
+%>

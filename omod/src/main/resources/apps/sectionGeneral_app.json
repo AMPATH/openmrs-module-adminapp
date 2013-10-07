@@ -1,53 +1,90 @@
 [
     {
-        "id": "${project.parent.artifactId}.section.users",
-        "description": "Users",
+        "id": "${project.parent.artifactId}.section.maintenance",
+        "description": "General Settings",
         "extensions": [
             {
-                "id": "${project.parent.artifactId}.user.manage",
+                "id": "${project.parent.artifactId}.general.implid",
                 "extensionPointId": "org.openmrs.adminapp.link",
                 "type": "link",
-                "label": "User.manage",
-                "url": "admin/users/users.list",
+                "label": "ImplementationId.set",
+                "url": "admin/maintenance/implementationid.form",
                 "icon": "icon-wrench",
-                "requiredPrivilege": "Edit Users"
+                "requiredPrivilege": "Manage Implementation Id"
             },
             {
-                "id": "${project.parent.artifactId}.role.manage",
+                "id": "${project.parent.artifactId}.general.sysinfo",
                 "extensionPointId": "org.openmrs.adminapp.link",
                 "type": "link",
-                "label": "Role.manage",
-                "url": "admin/users/role.list",
+                "label": "SystemInfo.overview",
+                "url": "admin/maintenance/systemInfo.htm",
                 "icon": "icon-wrench",
-                "requiredPrivilege": "Manage Roles"
+                "requiredPrivilege": "Audit"
             },
             {
-                "id": "${project.parent.artifactId}.privilege.manage",
+                "id": "${project.parent.artifactId}.general.quickreport",
                 "extensionPointId": "org.openmrs.adminapp.link",
                 "type": "link",
-                "label": "Privilege.manage",
-                "url": "admin/users/privilege.list",
+                "label": "QuickReport.manage",
+                "url": "admin/maintenance/quickReport.htm",
                 "icon": "icon-wrench",
-                "requiredPrivilege": "Manage Privileges"
+                "requiredPrivilege": "View Patients"
             },
             {
-                "id": "${project.parent.artifactId}.alert.manage",
+                "id": "${project.parent.artifactId}.general.quickreport",
                 "extensionPointId": "org.openmrs.adminapp.link",
                 "type": "link",
-                "label": "Alert.manage",
-                "url": "admin/users/alert.list",
+                "label": "Settings.title",
+                "url": "admin/maintenance/settings.list",
                 "icon": "icon-wrench",
-                "requiredPrivilege": "Manage Alerts"
+                "requiredPrivilege": "Manage Global Properties"
             },
             {
-                "id": "${project.parent.artifactId}.role.manage",
+                "id": "${project.parent.artifactId}.general.globalprops",
                 "extensionPointId": "org.openmrs.adminapp.link",
                 "type": "link",
-                "label": "Role.manage",
-                "url": "admin/users/role.list",
+                "label": "GlobalProperty.manage",
+                "url": "admin/maintenance/globalProps.form",
                 "icon": "icon-wrench",
-                "requiredPrivilege": "Manage Roles"
+                "requiredPrivilege": "Manage Global Properties"
+            },
+            {
+                "id": "${project.parent.artifactId}.general.serverlog",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "ServerLog.view",
+                "url": "admin/maintenance/serverLog.form",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "View Server Log"
+            },
+            {
+                "id": "${project.parent.artifactId}.general.dbchanges",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "DatabaseChangesInfo.overview",
+                "url": "admin/maintenance/databaseChangesInfo.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "View Database Changes"
+            },
+            {
+                "id": "${project.parent.artifactId}.general.themes",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "LocalesAndThemes.manage",
+                "url": "admin/maintenance/localesAndThemes.form",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Global Properties"
+            },
+            {
+                "id": "${project.parent.artifactId}.general.userlist",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "ViewCurrentUsers.list",
+                "url": "admin/maintenance/currentUsers.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "View Current Users"
             }
+
         ]
     }
 ]

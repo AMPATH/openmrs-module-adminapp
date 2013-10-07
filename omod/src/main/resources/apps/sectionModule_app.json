@@ -1,0 +1,27 @@
+[
+    {
+        "id": "${project.parent.artifactId}.section.modules",
+        "description": "Modules",
+        "extensions": [
+            {
+                "id": "${project.parent.artifactId}.modules.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "Module.manage",
+                "url": "admin/modules/module.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Modules"
+            },
+            {
+                "id": "${project.parent.artifactId}.role.moduleprop",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "Module.manageProperties",
+                "url": "admin/modules/moduleProperties.form",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Modules"
+            }
+        ]
+    }
+]
+

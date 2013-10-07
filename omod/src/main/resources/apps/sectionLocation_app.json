@@ -1,0 +1,46 @@
+[
+    {
+        "id": "${project.parent.artifactId}.section.location",
+        "description": "Location",
+        "extensions": [
+            {
+                "id": "${project.parent.artifactId}.location.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "LocationTag.manage",
+                "url": "admin/locations/location.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Locations"
+            },
+            {
+                "id": "${project.parent.artifactId}.location.view",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "LocationTag.manage",
+                "url": "admin/locations/locationTag.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Location Tags"
+            },
+            {
+                "id": "${project.parent.artifactId}.location.viewhierarchy",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "Location.hierarchy.view",
+                "url": "admin/locations/hierarchy.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "View Locations"
+            },
+            {
+                "id": "${project.parent.artifactId}.location.manageattr",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "LocationAttributeType.manage",
+                "url": "admin/locations/locationAttributeTypes.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Location Attribute Types"
+            }
+
+        ]
+    }
+]
+

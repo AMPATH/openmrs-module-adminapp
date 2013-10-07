@@ -17,6 +17,11 @@
             jq(this).addClass("selected");
             var sectionKey = jq(this).attr("data-sectionKey");
             jq("#section-details").html(jq("[data-sectionKey=" + sectionKey + "].content").html());
+            if (this != jq("#sections .menu-item").first()) {
+                jq('html, body').animate({
+                    scrollTop: jq("#section-details").offset().top
+                }, 1000);
+            }
         });
 
         // start with the top-most section
@@ -53,7 +58,7 @@
 <ul id="sections" class="left-menu">
     <% sections.each { section -> %>
     <li class="menu-item" data-sectionKey="${ section.key.replace('.','') }">
-        <span class="title">${ section.value }</span>
+        <span class="title">${ ui.message(section.value) }</span>
         <span class="arrow-border"></span>
         <span class="arrow"></span>
         <span class="hidden content" data-sectionKey="${ section.key.replace('.','') }">
