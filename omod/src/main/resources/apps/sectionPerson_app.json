@@ -1,0 +1,35 @@
+[
+    {
+        "id": "${project.parent.artifactId}.section.person",
+        "description": "Person",
+        "extensions": [
+            {
+                "id": "${project.parent.artifactId}.person.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "Person.manage",
+                "url": "/admin/person/index.htm",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Add Persons,Edit Persons,Delete Persons,View Persons"
+            },
+            {
+                "id": "${project.parent.artifactId}.relationshipType.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "RelationshipType.manage",
+                "url": "/admin/person/relationshipType.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Relationship Types"
+            },
+            {
+                "id": "${project.parent.artifactId}.personAttributeType.manage",
+                "extensionPointId": "org.openmrs.adminapp.link",
+                "type": "link",
+                "label": "PersonAttributeType.manage",
+                "url": "/admin/person/personAttributeType.list",
+                "icon": "icon-wrench",
+                "requiredPrivilege": "Manage Person Attribute Types"
+            }
+        ]
+    }
+]

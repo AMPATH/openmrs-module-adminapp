@@ -34,7 +34,7 @@
 
 			// Default settings
 	    	var settings = $.extend({
-	    		targetClass: null,
+	    		targets: [],
 	    		highlightClass: 'highlight',
 	    		callback: null
 	    	}, options);
@@ -43,8 +43,10 @@
 	    	// highlight text on focus
 		    return this.each(function() {
 		    	$(this).on('keyup search', function(e) {
-		    		methods.doHighlighting(settings.targetClass,
-		    			$(this).val(), settings.highlightClass, settings.callback);
+		    		for (i in settings.targets) {
+			    		methods.doHighlighting(settings.targets[i],
+			    			$(this).val(), settings.highlightClass, settings.callback);
+			    	}
 		    	})
 		    	.on('focus', function() {
 		    		$(this).select();
@@ -57,10 +59,10 @@
 		highlight: function(elem, highlightClass) {
 			elem.addClass(highlightClass);
 		},
-		doHighlighting: function(context, text, highlightClass, onHighlight) {
+		doHighlighting: function(target, text, highlightClass, onHighlight) {
 			var lowerText = text.toLowerCase();
-			$(context).each(function() {
-				if (text.length > 0 && $(this).text().toLowerCase().indexOf(lowerText) != -1) {
+			$(target.each).each(function() {
+				if (text.length > 0 && target.text($(this)).toLowerCase().indexOf(lowerText) != -1) {
 					$(this).addClass(highlightClass);
 					if (onHighlight)
 						onHighlight($(this), highlightClass);

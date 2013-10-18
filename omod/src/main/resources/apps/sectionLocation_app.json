@@ -1,7 +1,7 @@
 [
     {
-        "id": "${project.parent.artifactId}.section.location",
-        "description": "Location",
+        "id": "${project.parent.artifactId}.section.locations",
+        "description": "Locations",
         "extensions": [
             {
                 "id": "${project.parent.artifactId}.location.manage",
